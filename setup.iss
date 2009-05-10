@@ -15,7 +15,7 @@ AppUpdatesURL=http://coderzh.cnblogs.com
 DefaultDirName={pf}\PyGrid
 DefaultGroupName=藏龙软件
 AllowNoIcons=yes
-OutputBaseFilename=setup
+OutputBaseFilename=pygrid
 Compression=lzma
 SolidCompression=yes
 
@@ -31,8 +31,8 @@ Source: "F:\Code\Python\pygrid\dist\*"; DestDir: "{app}"; Flags: ignoreversion r
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\藏龙软件"; Filename: "{app}\mainform.exe"
-Name: "{commondesktop}\藏龙软件"; Filename: "{app}\mainform.exe"; Tasks: desktopicon
+Name: "{group}\藏龙统计"; Filename: "{app}\mainform.exe"
+Name: "{commondesktop}\藏龙统计"; Filename: "{app}\mainform.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\mainform.exe"; Description: "{cm:LaunchProgram,藏龙软件}"; Flags: nowait postinstall skipifsilent

@@ -170,7 +170,8 @@ class MainWindow(QMainWindow, Ui_mainWindow):
                                   'utf8',
                                   'ignore')
         record.date = self.dateEdit_Date.date().toPyDate()
-        #record.total = self.doubleSpinBox_Total.value()
+        
+        record.total = self.doubleSpinBox_Total.value()
         
         row = self.model.rowCount()
         self.model.insertRows(row, record)
