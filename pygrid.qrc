@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="/" >
+    <file>icon/print.png</file>
+    <file>icon/edit.png</file>
+    <file>icon/delete.png</file>
+    <file>icon/query.png</file>
+    <file>icon/stat.png</file>
+    <file>icon/exit.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,510 @@
+<ui version="4.0" >
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="font" >
+   <font>
+    <family>MS Shell Dlg 2</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>藏龙账务统计</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="pygrid.qrc" >
+    <normaloff>:/icon/exit.png</normaloff>:/icon/exit.png</iconset>
+  </property>
+  <property name="locale" >
+   <locale country="China" language="Chinese" />
+  </property>
+  <widget class="QWidget" name="centralWidget" >
+   <layout class="QHBoxLayout" name="horizontalLayout_2" >
+    <item>
+     <widget class="QSplitter" name="mainSplitter" >
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget" >
+       <layout class="QVBoxLayout" name="verticalLayout" >
+        <item>
+         <widget class="QTableView" name="tableView" >
+          <property name="font" >
+           <font>
+            <family>MS Shell Dlg 2</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="contextMenuPolicy" >
+           <enum>Qt::ActionsContextMenu</enum>
+          </property>
+          <property name="selectionBehavior" >
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget" >
+       <layout class="QVBoxLayout" name="verticalLayout_2" >
+        <item>
+         <widget class="QDockWidget" name="dockWidget" >
+          <property name="features" >
+           <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+          </property>
+          <property name="windowTitle" >
+           <string>统计</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents" >
+           <layout class="QGridLayout" name="gridLayout" >
+            <item row="0" column="0" >
+             <widget class="QLabel" name="label" >
+              <property name="text" >
+               <string>日期：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>dateEdit_From</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QDateEdit" name="dateEdit_From" >
+              <property name="displayFormat" >
+               <string>yyyy-MM-dd</string>
+              </property>
+              <property name="calendarPopup" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2" >
+             <widget class="QLabel" name="label_2" >
+              <property name="text" >
+               <string>至</string>
+              </property>
+              <property name="buddy" >
+               <cstring>dateEdit_To</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3" >
+             <widget class="QDateEdit" name="dateEdit_To" >
+              <property name="displayFormat" >
+               <string>yyyy-MM-dd</string>
+              </property>
+              <property name="calendarPopup" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="label_3" >
+              <property name="text" >
+               <string>品名：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>comboBox_SearchName</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="QComboBox" name="comboBox_SearchName" >
+              <property name="editable" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2" >
+             <widget class="QLabel" name="label_4" >
+              <property name="text" >
+               <string>类别：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>comboBox_SearchCategory</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3" >
+             <widget class="QComboBox" name="comboBox_SearchCategory" >
+              <property name="editable" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="label_5" >
+              <property name="text" >
+               <string>支出：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="QLabel" name="label_OutCome" >
+              <property name="font" >
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" >
+             <widget class="QLabel" name="label_7" >
+              <property name="text" >
+               <string>收入：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" >
+             <widget class="QLabel" name="label_InCome" >
+              <property name="font" >
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" >
+             <widget class="QLabel" name="label_9" >
+              <property name="text" >
+               <string>余额：</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1" >
+             <widget class="QLabel" name="label_TotalLeft" >
+              <property name="font" >
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDockWidget" name="dockWidget_2" >
+          <property name="features" >
+           <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+          </property>
+          <property name="windowTitle" >
+           <string>添加</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents_2" >
+           <layout class="QGridLayout" name="gridLayout_2" >
+            <item row="0" column="1" >
+             <widget class="QComboBox" name="comboBox_Name" >
+              <property name="editable" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2" >
+             <widget class="QLabel" name="label_Date" >
+              <property name="text" >
+               <string>日期(&amp;D)：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>dateEdit_Date</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="3" >
+             <widget class="QDateEdit" name="dateEdit_Date" >
+              <property name="displayFormat" >
+               <string>yyyy-MM-dd</string>
+              </property>
+              <property name="calendarPopup" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" colspan="4" >
+             <widget class="QDialogButtonBox" name="buttonBox" >
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="standardButtons" >
+               <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="label_Number" >
+              <property name="text" >
+               <string>支出(&amp;U)：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>doubleSpinBox_OutCome</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="QDoubleSpinBox" name="doubleSpinBox_OutCome" >
+              <property name="minimum" >
+               <double>-99999999.989999994635582</double>
+              </property>
+              <property name="maximum" >
+               <double>99999999.989999994635582</double>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2" >
+             <widget class="QLabel" name="label_UnitPrice" >
+              <property name="text" >
+               <string>收入(&amp;I)：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>doubleSpinBox_InCome</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3" >
+             <widget class="QDoubleSpinBox" name="doubleSpinBox_InCome" >
+              <property name="minimum" >
+               <double>-99999999.989999994635582</double>
+              </property>
+              <property name="maximum" >
+               <double>99999999.989999994635582</double>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2" >
+             <widget class="QLabel" name="label_Category_2" >
+              <property name="text" >
+               <string>类别(&amp;C)：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>comboBox_Category</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3" >
+             <widget class="QComboBox" name="comboBox_Category" >
+              <property name="editable" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="label_Total" >
+              <property name="text" >
+               <string>余额(&amp;T)：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>doubleSpinBox_Total</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="label_Name" >
+              <property name="text" >
+               <string>品名(&amp;N)：</string>
+              </property>
+              <property name="buddy" >
+               <cstring>comboBox_Name</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="QDoubleSpinBox" name="doubleSpinBox_Total" >
+              <property name="minimum" >
+               <double>-99999999.989999994635582</double>
+              </property>
+              <property name="maximum" >
+               <double>99999999.989999994635582</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDockWidget" name="dockWidget_3" >
+          <property name="features" >
+           <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+          </property>
+          <property name="windowTitle" >
+           <string>其他</string>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents_3" />
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile" >
+    <property name="title" >
+     <string>文件(&amp;F)</string>
+    </property>
+    <addaction name="action_Exit" />
+   </widget>
+   <widget class="QMenu" name="menu_Q" >
+    <property name="title" >
+     <string>操作(&amp;O)</string>
+    </property>
+    <addaction name="action_Query" />
+    <addaction name="action_Stat" />
+   </widget>
+   <addaction name="menuFile" />
+   <addaction name="menu_Q" />
+  </widget>
+  <widget class="QToolBar" name="toolBar" >
+   <property name="windowTitle" >
+    <string>toolBar</string>
+   </property>
+   <property name="toolButtonStyle" >
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak" >
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_Query" />
+   <addaction name="action_Stat" />
+  </widget>
+  <widget class="QStatusBar" name="statusBar" >
+   <property name="statusTip" >
+    <string>Ready!</string>
+   </property>
+  </widget>
+  <action name="action_Exit" >
+   <property name="icon" >
+    <iconset resource="pygrid.qrc" >
+     <normaloff>:/icon/exit.png</normaloff>:/icon/exit.png</iconset>
+   </property>
+   <property name="text" >
+    <string>退出(&amp;X)</string>
+   </property>
+   <property name="statusTip" >
+    <string>点这个就退出了，快捷键:Ctrl+Q</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_Edit" >
+   <property name="icon" >
+    <iconset resource="pygrid.qrc" >
+     <normaloff>:/icon/edit.png</normaloff>:/icon/edit.png</iconset>
+   </property>
+   <property name="text" >
+    <string>编辑(&amp;E)</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="action_Delete" >
+   <property name="icon" >
+    <iconset resource="pygrid.qrc" >
+     <normaloff>:/icon/delete.png</normaloff>:/icon/delete.png</iconset>
+   </property>
+   <property name="text" >
+    <string>删除(&amp;D)</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Del</string>
+   </property>
+  </action>
+  <action name="action_Query" >
+   <property name="icon" >
+    <iconset resource="pygrid.qrc" >
+     <normaloff>:/icon/query.png</normaloff>:/icon/query.png</iconset>
+   </property>
+   <property name="text" >
+    <string>查询(&amp;F)</string>
+   </property>
+   <property name="statusTip" >
+    <string>查询并修改记录，快捷键:Ctrl+F</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="action_Stat" >
+   <property name="icon" >
+    <iconset resource="pygrid.qrc" >
+     <normaloff>:/icon/stat.png</normaloff>:/icon/stat.png</iconset>
+   </property>
+   <property name="text" >
+    <string>统计(&amp;S)</string>
+   </property>
+   <property name="statusTip" >
+    <string>对数据进行统计，快捷键:Ctrl+S</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>comboBox_Name</tabstop>
+  <tabstop>comboBox_Category</tabstop>
+  <tabstop>doubleSpinBox_OutCome</tabstop>
+  <tabstop>doubleSpinBox_InCome</tabstop>
+  <tabstop>doubleSpinBox_Total</tabstop>
+  <tabstop>dateEdit_Date</tabstop>
+  <tabstop>tableView</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources>
+  <include location="pygrid.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_Exit</sender>
+   <signal>triggered()</signal>
+   <receiver>mainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
