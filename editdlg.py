@@ -3,6 +3,7 @@
 from Ui_editdlg import Ui_Dialog
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+
 class EditDialog(QDialog, Ui_Dialog):
     def __init__(self, parent=None, record=None, *after_calls):
         super(EditDialog, self).__init__(parent)
@@ -12,13 +13,13 @@ class EditDialog(QDialog, Ui_Dialog):
         self.after_calls = after_calls
         self.comboBox_Category.setModel(parent.categoryModel)
         if self.record:
-            self.setWindowTitle(QString(u'编辑 - 编号:%1').arg(self.record.id))
+            self.setWindowTitle(QString(u'编辑 - ID:%1').arg(self.record.id))
 
         # buttonbox
         cancelbutton = self.buttonBox.button(QDialogButtonBox.Cancel)
         cancelbutton.setText(QString(u'取消'))
         okbutton = self.buttonBox.button(QDialogButtonBox.Ok)
-        okbutton.setText(QString(u'插入'))
+        okbutton.setText(QString(u'确定'))
         okbutton.setShortcut(QString(u'Return'))
 
         self.fill_data()
@@ -30,6 +31,7 @@ class EditDialog(QDialog, Ui_Dialog):
         '''
         fill the edits with record
         '''
+        self.spinBox_Number.setValue(self.record.number)
         self.comboBox_Name.setEditText(QString(u'%1').arg(self.record.name))
         self.doubleSpinBox_OutCome.setValue(self.record.outcome)
         self.doubleSpinBox_InCome.setValue(self.record.income)
@@ -41,6 +43,7 @@ class EditDialog(QDialog, Ui_Dialog):
         '''
         modify the record and close this dialog
         '''
+        self.record.number = self.spinBox_Number.value()
         self.record.name = unicode(self.comboBox_Name.currentText().toUtf8(),
                                    'utf8',
                                    'ignore')

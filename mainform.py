@@ -75,6 +75,7 @@ class MainWindow(QMainWindow, Ui_mainWindow):
         self.doubleSpinBox_InCome.setValue(0.0)
         self.doubleSpinBox_OutCome.setValue(0.0)
         self.comboBox_Name.setFocus()
+        self.spinBox_Number.setValue(self.spinBox_Number.value() + 1)
     
     def update_count_result(self):
         date_from = self.dateEdit_From.date()
@@ -162,6 +163,7 @@ class MainWindow(QMainWindow, Ui_mainWindow):
            or self.comboBox_Category.currentText() == '':
             return
         record = records.Record()
+        record.number = self.spinBox_Number.value()
         record.name = unicode(self.comboBox_Name.currentText().toUtf8(),'utf8', 'ignore')
         
         record.income = self.doubleSpinBox_InCome.value()

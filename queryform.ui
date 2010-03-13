@@ -15,7 +15,7 @@
    </font>
   </property>
   <property name="windowTitle" >
-   <string>查询</string>
+   <string>管理</string>
   </property>
   <property name="windowIcon" >
    <iconset resource="pygrid.qrc" >
@@ -187,7 +187,7 @@
      <x>0</x>
      <y>0</y>
      <width>854</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_F" >

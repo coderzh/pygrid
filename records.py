@@ -15,6 +15,7 @@ import util
 R_DATE, R_ID, R_NAME, R_CATEGORY, R_OUTCOME, R_INCOME, R_TOTAL = range(7)
 
 class Record(Entity):
+    number = Field(Integer, default=1)
     name = Field(Unicode(60), required=True)
     category = Field(Unicode(60), required=True)
     income = Field(Float, default=0.0)
@@ -110,11 +111,11 @@ class Record(Entity):
         previous_total = 0.0
         if recordcount > recordCount:
             count = recordcount - recordCount
-            result = session.execute('select sum(income)-sum(outcome) as totalleft from (select * from records order by [date], [id] limit :count)',
+            result = session.execute('select sum(income)-sum(outcome) as totalleft from (select * from records order by [number] limit :count)',
                                      {'count' : count}).fetchone()
             previous_total = result['totalleft']
         
-        records = Record.query.order_by(Record.date).order_by(Record.id)[-recordCount:]
+        records = Record.query.order_by(Record.number)[-recordCount:]
         first_record = records[0]
         first_record.total = previous_total + first_record.income - first_record.outcome
         return records
@@ -131,7 +132,7 @@ class Record(Entity):
             query = query.filter(Record.outcome > 0)
         elif inoutcome == 2:
             query = query.filter(Record.income > 0)
-        return query.all()
+        return query.order_by(Record.number).all()
 
 S_TITLE, S_CATEGORYS, S_FIRSTDATE = u'Title', u'Categorys', u'FirstDate'
 
@@ -229,7 +230,7 @@ class RecordTableModel(QAbstractTableModel):
             if column == R_NAME:
                 return QVariant(QString(record.name))
             elif column ==R_ID:
-                return QVariant(QString(u'%1').arg(record.id))
+                return QVariant(QString(u'%1').arg(record.number))
             elif column == R_INCOME and record.income > 0:
                 return QVariant(QString(u'%L1').arg(record.income))
             elif column == R_OUTCOME and record.outcome > 0:
@@ -303,7 +304,7 @@ class RecordTableModel(QAbstractTableModel):
         for record in self.records:
             html += '<tr>'
             html += '<td>%s</td>' % record.date.strftime('%Y-%m-%d')
-            html += '<td>%d</td>' % record.id
+            html += '<td>%d</td>' % record.number
             html += '<td>%s</td>' % record.name
             html += '<td>%s</td>' % record.category
             html += '<td>%d</td>' % record.income

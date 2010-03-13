@@ -5,7 +5,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>361</width>
+    <width>376</width>
     <height>188</height>
    </rect>
   </property>
@@ -22,7 +22,7 @@
     <normaloff>:/icon/edit.png</normaloff>:/icon/edit.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="0" >
+   <item row="1" column="0" >
     <widget class="QLabel" name="label_Name" >
      <property name="text" >
       <string>品名(&amp;N)：</string>
@@ -32,7 +32,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0" >
+   <item row="2" column="0" >
     <widget class="QLabel" name="label_Number" >
      <property name="text" >
       <string>出账(&amp;U)：</string>
@@ -42,7 +42,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="2" >
+   <item row="2" column="2" >
     <widget class="QLabel" name="label_UnitPrice" >
      <property name="text" >
       <string>入账(&amp;I)：</string>
@@ -52,7 +52,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="2" >
+   <item row="3" column="2" >
     <widget class="QLabel" name="label_Date" >
      <property name="text" >
       <string>日期(&amp;D)：</string>
@@ -62,7 +62,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="3" >
+   <item row="3" column="3" >
     <widget class="QDateEdit" name="dateEdit_Date" >
      <property name="displayFormat" >
       <string>yyyy-MM-dd</string>
@@ -72,7 +72,7 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="0" colspan="4" >
+   <item row="5" column="0" colspan="4" >
     <widget class="QDialogButtonBox" name="buttonBox" >
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
@@ -82,7 +82,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="3" >
+   <item row="2" column="3" >
     <widget class="QDoubleSpinBox" name="doubleSpinBox_InCome" >
      <property name="minimum" >
       <double>-99999999.989999994635582</double>
@@ -92,14 +92,14 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1" >
+   <item row="1" column="1" >
     <widget class="QComboBox" name="comboBox_Name" >
      <property name="editable" >
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="0" column="2" >
+   <item row="1" column="2" >
     <widget class="QLabel" name="label_Category" >
      <property name="text" >
       <string>类别(&amp;C)：</string>
@@ -109,14 +109,14 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="3" >
+   <item row="1" column="3" >
     <widget class="QComboBox" name="comboBox_Category" >
      <property name="editable" >
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="1" column="1" >
+   <item row="2" column="1" >
     <widget class="QDoubleSpinBox" name="doubleSpinBox_OutCome" >
      <property name="minimum" >
       <double>-99999999.989999994635582</double>
@@ -126,7 +126,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0" >
+   <item row="3" column="0" >
     <widget class="QLabel" name="label_Total" >
      <property name="text" >
       <string>余额(&amp;T)：</string>
@@ -136,13 +136,33 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="1" >
+   <item row="3" column="1" >
     <widget class="QDoubleSpinBox" name="doubleSpinBox_Total" >
      <property name="minimum" >
       <double>-99999999.989999994635582</double>
      </property>
      <property name="maximum" >
       <double>99999999.989999994635582</double>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" >
+    <widget class="QLabel" name="label_Number_2" >
+     <property name="text" >
+      <string>编号(&amp;I)</string>
+     </property>
+     <property name="buddy" >
+      <cstring>spinBox_Number</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" >
+    <widget class="QSpinBox" name="spinBox_Number" >
+     <property name="minimum" >
+      <number>1</number>
+     </property>
+     <property name="maximum" >
+      <number>99999999</number>
      </property>
     </widget>
    </item>

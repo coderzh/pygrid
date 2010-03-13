@@ -1,0 +1,5 @@
+pyuic4 -o Ui_mainform.py -x mainform.ui
+pyuic4 -o Ui_editdlg.py -x editdlg.ui
+
+build:
+setup.py py2exe

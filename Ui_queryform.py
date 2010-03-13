@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'queryform.ui'
 #
-# Created: Sun May 10 00:47:46 2009
+# Created: Sat Mar 13 23:24:08 2010
 #      by: PyQt4 UI code generator 4.4.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.tableView)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 854, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 854, 20))
         self.menubar.setObjectName("menubar")
         self.menu_F = QtGui.QMenu(self.menubar)
         self.menu_F.setObjectName("menu_F")
@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "查询", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "管理", None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox.setTitle(QtGui.QApplication.translate("MainWindow", "查询条件", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", "日期：", None, QtGui.QApplication.UnicodeUTF8))
         self.dateEdit_From.setDisplayFormat(QtGui.QApplication.translate("MainWindow", "yyyy-MM-dd", None, QtGui.QApplication.UnicodeUTF8))
@@ -163,3 +163,13 @@ class Ui_MainWindow(object):
         self.action_Delete.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Del", None, QtGui.QApplication.UnicodeUTF8))
 
 import pygrid_rc
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    MainWindow = QtGui.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+
