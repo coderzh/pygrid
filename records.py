@@ -72,15 +72,15 @@ class Record(Entity):
     
     @staticmethod
     def stat_overview(date_from, date_to, filter_name, filter_category):
-        sql = 'select sum([income]) as income,'\
-            'sum([outcome]) as outcome '\
+        sql = 'select sum([outcome]) as outcome,'\
+            'sum([income]) as income '\
             'from [records]'
         condition, params = Record.get_sql_filter_condition(date_from, 
                                             date_to, 
                                             filter_name, 
                                             filter_category)
-        sql = 'select income,'\
-            'outcome,'\
+        sql = 'select outcome,'\
+            'income,'\
             '(income-outcome) as total '\
             'from (%s %s)' % (sql, condition)
         return session.execute(sql, params).fetchall()
@@ -88,16 +88,16 @@ class Record(Entity):
     @staticmethod
     def stat_groupby(date_from, date_to, filter_name, filter_category, group_name):
         sql = 'select %s as name,'\
-            'sum([income]) as income,'\
-            'sum([outcome]) as outcome '\
+            'sum([outcome]) as outcome,'\
+            'sum([income]) as income '\
             'from [records]' % group_name
         condition, params = Record.get_sql_filter_condition(date_from, 
                                             date_to, 
                                             filter_name, 
                                             filter_category)
         sql = 'select name,'\
-            'income,'\
             'outcome,'\
+            'income,'\
             '(income-outcome) as total '\
             'from (%s %s group by %s)' % (sql, condition, group_name)
         return session.execute(sql, params).fetchall()
@@ -243,7 +243,7 @@ class RecordTableModel(QAbstractTableModel):
                           + record.income \
                           - record.outcome
                 
-                return QVariant(QString(u'%L1').arg(record.total))
+                return QVariant(QString(str(record.total)))
             elif column == R_CATEGORY:
                 return QVariant(QString(record.category))
             elif column == R_DATE:

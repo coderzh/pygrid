@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'statform.ui'
 #
-# Created: Sun May 10 10:42:55 2009
-#      by: PyQt4 UI code generator 4.4.3
+# Created: Sun Mar 14 21:08:10 2010
+#      by: PyQt4 UI code generator 4.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -161,7 +161,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
         self.menubar.setObjectName("menubar")
         self.menu_F = QtGui.QMenu(self.menubar)
         self.menu_F.setObjectName("menu_F")
@@ -196,7 +196,7 @@ class Ui_MainWindow(object):
         self.label_4.setBuddy(self.comboBox_SearchCategory)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(4)
         QtCore.QObject.connect(self.action_Exit, QtCore.SIGNAL("activated()"), MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -245,3 +245,13 @@ class Ui_MainWindow(object):
         self.action_Print.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+P", None, QtGui.QApplication.UnicodeUTF8))
 
 import pygrid_rc
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    MainWindow = QtGui.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+

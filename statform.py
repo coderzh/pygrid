@@ -84,7 +84,12 @@ class StatWindow(QMainWindow, Ui_MainWindow):
 		item = items[row][col]
 		if item is None:
 		    item = ''
-		item = QTableWidgetItem(QString('%1').arg(item))
+                if isinstance(item, unicode):
+                    pass
+                else:
+                    item = str(item)
+                    
+		item = QTableWidgetItem(QString("%1").arg(item))
 		tablewidget.setItem(row, col, item)
 	tablewidget.setSortingEnabled(True)
 

@@ -62,6 +62,10 @@ class MainWindow(QMainWindow, Ui_mainWindow):
     
     def init_control_data(self):
         date_from = records.Setting.GetFirstDate()
+        last_record = self.model.getLastRecord();
+        if last_record:
+            self.spinBox_Number.setValue(last_record.number + 1)
+            
         self.dateEdit_Date.setDate(QDate(datetime.date.today()))
         self.dateEdit_From.setDate(QDate(date_from))
         self.dateEdit_To.setDate(QDate(datetime.date.today()))
@@ -90,9 +94,9 @@ class MainWindow(QMainWindow, Ui_mainWindow):
                                                           date_to,
                                                           search_name,
                                                           search_category)
-        self.label_InCome.setText(QString('<font color=darkgreen>%L1</font>').arg(income))
-        self.label_OutCome.setText(QString('<font color=red>%L1</font>').arg(outcome))
-        self.label_TotalLeft.setText(QString('<font color=blue>%L1</font>').arg(totalleft))
+        self.label_InCome.setText(QString('<font color=darkgreen>' + str(income) + '</font>'))
+        self.label_OutCome.setText(QString('<font color=red>' + str(outcome) + '</font>'))
+        self.label_TotalLeft.setText(QString('<font color=blue>' + str(totalleft) + '</font>'))
     
     def update_doubleSpinBox_Total(self):
         last_record = self.model.getLastRecord()
